@@ -117,3 +117,14 @@ fn main() -> Maybe<()> {
 
     Ok(())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    const TEST_WASM: &'static [u8] = include_bytes!("../../custom.wasm");
+
+    #[test]
+    fn parse_test_wasm() {
+        parser::parse(TEST_WASM).unwrap();
+    }
+}
